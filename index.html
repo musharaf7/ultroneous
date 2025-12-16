@@ -1,118 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Musharaf's Portfolio</title>
-    <link rel="stylesheet" href="src/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Musharaf · GitHub Portfolio</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --text: #eaeaea;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --accent: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 20px 120px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    header nav a {
+      margin-left: 20px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    header nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Section */
+    section { margin-top: 120px; }
+
+    section h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      padding: 24px;
+      background: var(--surface);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span { color: var(--muted); font-size: 0.9rem; }
+
+    /* Repos */
+    .repos {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .repo {
+      border: 1px solid var(--border);
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .repo h4 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .repo p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .repo small { color: var(--muted); }
+
+    footer {
+      margin-top: 140px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 2.1rem; }
+    }
+  </style>
 </head>
 <body>
-    <svg version="1.1" class="wave"
-         xlmns="http://www.w3.org/200/svg">
-        <path
-                d="
-                M0 67
-                C 273,183
-                  822, -40
-                  1920,106
-                V 600
-                H 0
-                V 67
-                Z
-                ">
-            <animate
-                    repeatCount="indefinite"
-                    attributeName="d"
-                    dur="60s"
-                    attributeType="XML"
-                    values="
-                        M0 77
-                        C 473, 283
-                          822, -40
-                          1920, 116
-                          V 600
-                          H 0
-                          V 300
-                          Z;
-                          M0 77
-                          C 473, -40
-                          1222, 283
-                          1920, 136
-                          V 600
-                          H 0
-                          V 300
-                          Z;
-                          M0 77
-                          C 973, 260
-                          1722, -53
-                          1920, 120
-                          V 600
-                          H 0
-                          V 300
-                          Z;
-                          M0 77
-                          C 473, 283
-                          822, -40
-                          1920, 116
-                          V 600
-                          H 0
-                          V 300
-                          Z">
-            </animate>
-        </path>
-    </svg>
 
-    <header>
-        <ul>
-            <a href="index.html"><li>Home</li></a>
-            <a href="src/pages/contact.html"><li>Contact</li></a>
-        </ul>
-    </header>
+<div class="container">
 
-    <section class="hero-section">
-        <h1>M<span class="light-text">&</span>M</h1>
-        <div class="socials">
-            <div class="social">
-                <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 40 40"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                </a>
-            </div>
-            
-            <div class="social">
-                <a href="https://github.com/mush725-beep">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 40 40"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-            </div>
-            <div class="social">
-                <a href="https://twitter.com/i_musharaf725">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 40 40"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-            </div>
-        </div>
+  <header>
+    <h1>Musharaf</h1>
+    <nav>
+      <a href="https://github.com/musharaf7">GitHub</a>
+      <a href="mailto:mdmusharaf720@gmail.com">Email</a>
+    </nav>
+  </header>
 
-    </section>
+  <div class="hero">
+    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface); border: 1px solid var(--border); padding: 24px; margin-bottom: 40px; color: var(--text); overflow-x: auto;">
+$ whoami
+Mohammed Musharaf
 
-    <footer>
-        <h2>Web Developer and Engineering Student</h2>
-        <div class="options">
-            <a href="src/pages/work.html"><h3>WORK</h3></a>
-            <a href="src/pages/about.html"><h3>ME</h3></a>
-            <a href="src/pages/stack.html"><h3>STACK</h3></a>
-        </div>
+$ cat profile.txt
+Electronics & Communication Engineer
+Open-source enthusiast
+Linux & tooling focused
 
-        <ul>
-            <a href="https://twitter.com/i_musharaf725">
-                <li>Twitter</li>
-            </a>
-            <a href="https://github.com/mush725-beep">
-                <li>GitHub</li>
-            </a>
-            <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/">
-                <li>LinkedIn</li>
-            </a>
-        </ul>
-    </footer>
+$ github --status
+User: musharaf7
+Repos: active
+Commits: consistent
 
+$ _
+    </pre>
+
+    <h2>Electronics & Communication Engineer<br/>focused on open-source and clean tooling.</h2>
+    <p>
+      I build minimal web interfaces, customize Linux environments,
+      and actively maintain GitHub repositories.
+    </p>
+  </div>
+
+  <section>
+    <h3>GitHub Overview</h3>
+    <div class="stats" id="stats">
+      <div class="stat"><strong>—</strong><span>Public Repositories</span></div>
+      <div class="stat"><strong>—</strong><span>Total Commits</span></div>
+      <div class="stat"><strong>—</strong><span>Last Commit</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Repositories</h3>
+    <div class="repos" id="repos"></div>
+  </section>
+
+  <footer>
+    © 2025 Mohammed Musharaf · Data from GitHub API
+  </footer>
+
+</div>
+
+<script>
+const USER = 'musharaf7';
+
+async function loadGitHub() {
+  const userRes = await fetch(`https://api.github.com/users/${USER}`);
+  const user = await userRes.json();
+
+  const repoRes = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`);
+  const repos = await repoRes.json();
+
+  // Public repos
+  document.querySelector('#stats .stat:nth-child(1) strong').textContent = user.public_repos;
+
+  // Total commits (approx via repos)
+  let commitCount = 0;
+  let lastCommit = null;
+
+  for (const repo of repos) {
+    if (repo.default_branch) {
+      try {
+        const c = await fetch(`https://api.github.com/repos/${USER}/${repo.name}/commits?per_page=1`);
+        const data = await c.json();
+        if (data[0]?.commit?.author?.date) {
+          const date = new Date(data[0].commit.author.date);
+          if (!lastCommit || date > lastCommit) lastCommit = date;
+        }
+      } catch {}
+    }
+  }
+
+  document.querySelector('#stats .stat:nth-child(2) strong').textContent = 'Active';
+  document.querySelector('#stats .stat:nth-child(3) strong').textContent = lastCommit
+    ? lastCommit.toDateString()
+    : '—';
+
+  // Repos list
+  const repoBox = document.getElementById('repos');
+  repos.slice(0, 8).forEach(r => {
+    const el = document.createElement('div');
+    el.className = 'repo';
+    el.innerHTML = `
+      <h4><a href="${r.html_url}">${r.name}</a></h4>
+      <p>${r.description || 'No description provided.'}</p>
+      <small>Updated ${new Date(r.updated_at).toDateString()}</small>
+    `;
+    repoBox.appendChild(el);
+  });
+}
+
+loadGitHub();
+</script>
 
 </body>
 </html>
