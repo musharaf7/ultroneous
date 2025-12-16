@@ -138,6 +138,9 @@
     @media (max-width: 600px) {
       .hero h2 { font-size: 2.1rem; }
     }
+    
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -153,28 +156,15 @@
   </header>
 
   <div class="hero">
-    <pre style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface); border: 1px solid var(--border); padding: 24px; margin-bottom: 40px; color: var(--text); overflow-x: auto;">
-$ whoami
-Mohammed Musharaf
+    <div id="terminal" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface); border: 1px solid var(--border); padding: 24px; margin-bottom: 40px; color: var(--text); min-height: 220px; white-space: pre-wrap;"></div>
 
-$ cat profile.txt
-Electronics & Communication Engineer
-Open-source enthusiast
-Linux & tooling focused
-
-$ github --status
-User: musharaf7
-Repos: active
-Commits: consistent
-
-$ _
-    </pre>
-
-    <h2>Electronics & Communication Engineer<br/>focused on open-source and clean tooling.</h2>
-    <p>
-      I build minimal web interfaces, customize Linux environments,
-      and actively maintain GitHub repositories.
-    </p>
+    <div class="reveal">
+      <h2>Electronics & Communication Engineer<br/>focused on open-source and clean tooling.</h2>
+      <p>
+        I build minimal web interfaces, customize Linux environments,
+        and actively maintain GitHub repositories.
+      </p>
+    </div>
   </div>
 
   <section>
@@ -247,6 +237,51 @@ async function loadGitHub() {
 }
 
 loadGitHub();
+
+// Terminal typing animation
+const terminalLines = [
+  '$ whoami',
+  'Mohammed Musharaf',
+  '',
+  '$ cat profile.txt',
+  'Electronics & Communication Engineer',
+  'Open-source enthusiast',
+  'Linux & tooling focused',
+  '',
+  '$ github --status',
+  'User: musharaf7',
+  'Repos: active',
+  'Commits: consistent',
+  '',
+  '$ _'
+];
+
+const terminal = document.getElementById('terminal');
+let line = 0, char = 0;
+
+function typeTerminal() {
+  if (line < terminalLines.length) {
+    if (char < terminalLines[line].length) {
+      terminal.textContent += terminalLines[line][char++];
+      setTimeout(typeTerminal, 30);
+    } else {
+      terminal.textContent += '\n';
+      line++; char = 0;
+      setTimeout(typeTerminal, 200);
+    }
+  }
+}
+
+typeTerminal();
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
