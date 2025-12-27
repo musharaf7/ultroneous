@@ -1,315 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammed Musharaf · GitHub Portfolio</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mohammed Musharaf · GitHub Portfolio</title>
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
 
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --text: #eaeaea;
-      --muted: #9ca3af;
-      --border: #1f2937;
-    }
+        <style>
+            :root {
+                --bg: #0a0a0a;
+                --surface: #111111;
+                --text: #eaeaea;
+                --muted: #9ca3af;
+                --border: #1f2937;
+            }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+            body {
+                font-family: "Inter", sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.6;
+            }
 
-    a { color: inherit; text-decoration: none; }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 80px 20px 120px;
-    }
+            .container {
+                max-width: 900px;
+                margin: auto;
+                padding: 80px 20px 120px;
+            }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 100px;
-    }
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 100px;
+            }
 
-    header h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
+            header h1 {
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
 
-    header nav a {
-      margin-left: 20px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
+            header nav a {
+                margin-left: 20px;
+                font-size: 0.95rem;
+                color: var(--muted);
+            }
 
-    header nav a:hover { color: var(--text); }
+            header nav a:hover {
+                color: var(--text);
+            }
 
-    /* Hero */
-    .hero h2 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+            /* Hero */
+            .hero h2 {
+                font-size: 2.6rem;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
 
-    .hero p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+            .hero p {
+                max-width: 520px;
+                color: var(--muted);
+                font-size: 1.05rem;
+            }
 
-    section { margin-top: 120px; }
+            section {
+                margin-top: 120px;
+            }
 
-    section h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
+            section h3 {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 24px;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--muted);
+            }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-    }
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 24px;
+            }
 
-    .stat {
-      border: 1px solid var(--border);
-      padding: 24px;
-      background: var(--surface);
-    }
+            .stat {
+                border: 1px solid var(--border);
+                padding: 24px;
+                background: var(--surface);
+            }
 
-    .stat strong {
-      display: block;
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
+            .stat strong {
+                display: block;
+                font-size: 1.8rem;
+                margin-bottom: 6px;
+            }
 
-    .stat span { color: var(--muted); font-size: 0.9rem; }
+            .stat span {
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
 
-    .repos {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+            .repos {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
 
-    .repo {
-      border: 1px solid var(--border);
-      padding: 20px;
-      background: var(--surface);
-    }
+            .repo {
+                border: 1px solid var(--border);
+                padding: 20px;
+                background: var(--surface);
+            }
 
-    .repo h4 {
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-    }
+            .repo h4 {
+                font-size: 1.05rem;
+                margin-bottom: 6px;
+            }
 
-    .repo p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
+            .repo p {
+                color: var(--muted);
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
 
-    .repo small { color: var(--muted); }
+            .repo small {
+                color: var(--muted);
+            }
 
-    footer {
-      margin-top: 140px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
+            footer {
+                margin-top: 140px;
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-  </style>
-</head>
-<body>
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 0.8s ease;
+            }
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Musharaf</h1>
+                <nav>
+                    <a href="https://github.com/musharaf7">GitHub</a>
+                    <a href="mailto:mdmusharaf720@gmail.com">Email</a>
+                </nav>
+            </header>
 
-<div class="container">
+            <div class="hero">
+                <div
+                    id="terminal"
+                    style="
+                        font-family:
+                            ui-monospace, SFMono-Regular, Menlo, monospace;
+                        background: var(--surface);
+                        border: 1px solid var(--border);
+                        padding: 24px;
+                        margin-bottom: 40px;
+                        min-height: 220px;
+                        white-space: pre-wrap;
+                    "
+                ></div>
 
-  <header>
-    <h1>Musharaf</h1>
-    <nav>
-      <a href="https://github.com/musharaf7">GitHub</a>
-      <a href="mailto:mdmusharaf720@gmail.com">Email</a>
-    </nav>
-  </header>
+                <div class="reveal">
+                    <h2>
+                        Electronics & Communication Engineer<br />focused on
+                        open-source and clean tooling.
+                    </h2>
+                    <p>
+                        I build minimal web interfaces, customize Linux
+                        environments, and actively maintain GitHub repositories.
+                    </p>
+                </div>
+            </div>
 
-  <div class="hero">
-    <div id="terminal" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface); border: 1px solid var(--border); padding: 24px; margin-bottom: 40px; min-height: 220px; white-space: pre-wrap;"></div>
+            <section>
+                <h3>GitHub Overview</h3>
+                <div class="stats" id="stats">
+                    <!-- cached hint -->
+                    <div class="stat">
+                        <strong>—</strong><span>Public Repositories</span>
+                    </div>
+                    <div class="stat">
+                        <strong>—</strong><span>Last Activity</span>
+                    </div>
+                    <div class="stat">
+                        <strong>—</strong><span>Last Commit</span>
+                    </div>
+                </div>
+            </section>
 
-    <div class="reveal">
-      <h2>Electronics & Communication Engineer<br/>focused on open-source and clean tooling.</h2>
-      <p>I build minimal web interfaces, customize Linux environments, and actively maintain GitHub repositories.</p>
-    </div>
-  </div>
+            <section>
+                <h3>Repositories</h3>
+                <div class="repos" id="repos"></div>
+            </section>
 
-  <section>
-    <h3>GitHub Overview</h3>
-    <div class="stats" id="stats">
-      <!-- cached hint -->
-      <div class="stat"><strong>—</strong><span>Public Repositories</span></div>
-      <div class="stat"><strong>—</strong><span>Last Activity</span></div>
-      <div class="stat"><strong>—</strong><span>Last Commit</span></div>
-    </div>
-  </section>
+            <footer>© 2025 Mohammed Musharaf · Data from GitHub API</footer>
+        </div>
 
-  <section>
-    <h3>Repositories</h3>
-    <div class="repos" id="repos"></div>
-  </section>
+        <script>
+            const USER = "musharaf7";
 
-  <footer>© 2025 Mohammed Musharaf · Data from GitHub API</footer>
+            async function loadGitHub() {
+                const cacheKey = "github_overview_cache_v1";
+                const cached = localStorage.getItem(cacheKey);
 
-</div>
+                try {
+                    const userRes = await fetch(
+                        `https://api.github.com/users/${USER}`,
+                    );
+                    if (!userRes.ok) throw new Error("Failed to fetch user");
+                    const user = await userRes.json();
 
-<script>
-const USER = 'musharaf7';
+                    const repoRes = await fetch(
+                        `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`,
+                    );
+                    if (!repoRes.ok) throw new Error("Failed to fetch repos");
+                    const reposData = await repoRes.json();
+                    const repos = Array.isArray(reposData) ? reposData : [];
 
-async function loadGitHub() {
-  const cacheKey = 'github_overview_cache_v1';
-  const cached = localStorage.getItem(cacheKey);
+                    // Public repos
+                    const publicRepos = user.public_repos ?? "—";
 
-  try {
-    const userRes = await fetch(`https://api.github.com/users/${USER}`);
-    if (!userRes.ok) throw new Error('Failed to fetch user');
-    const user = await userRes.json();
+                    // Compute last activity from pushed_at
+                    let lastActivity = null;
+                    for (const repo of repos) {
+                        if (repo.pushed_at) {
+                            const d = new Date(repo.pushed_at);
+                            if (!lastActivity || d > lastActivity)
+                                lastActivity = d;
+                        }
+                    }
 
-    const repoRes = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`);
-    if (!repoRes.ok) throw new Error('Failed to fetch repos');
-    const reposData = await repoRes.json();
-    const repos = Array.isArray(reposData) ? reposData : [];
+                    // Last activity: X days ago
+                    let lastActivityText = "—";
+                    let lastCommitText = "—";
+                    if (lastActivity) {
+                        const diffDays = Math.floor(
+                            (Date.now() - lastActivity.getTime()) /
+                                (1000 * 60 * 60 * 24),
+                        );
+                        lastActivityText =
+                            diffDays === 0
+                                ? "Today"
+                                : `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
+                        lastCommitText = lastActivity.toDateString();
+                    }
 
-    // Public repos
-    const publicRepos = user.public_repos ?? '—';
+                    // Update UI
+                    document.querySelector(
+                        "#stats .stat:nth-child(1) strong",
+                    ).textContent = publicRepos;
+                    document.querySelector(
+                        "#stats .stat:nth-child(2) strong",
+                    ).textContent = lastActivityText;
+                    document.querySelector(
+                        "#stats .stat:nth-child(3) strong",
+                    ).textContent = lastCommitText;
 
-    // Compute last activity from pushed_at
-    let lastActivity = null;
-    for (const repo of repos) {
-      if (repo.pushed_at) {
-        const d = new Date(repo.pushed_at);
-        if (!lastActivity || d > lastActivity) lastActivity = d;
-      }
-    }
+                    // Save cache
+                    localStorage.setItem(
+                        cacheKey,
+                        JSON.stringify({
+                            publicRepos,
+                            lastActivityText,
+                            lastCommitText,
+                            cachedAt: Date.now(),
+                        }),
+                    );
 
-    // Last activity: X days ago
-    let lastActivityText = '—';
-    let lastCommitText = '—';
-    if (lastActivity) {
-      const diffDays = Math.floor((Date.now() - lastActivity.getTime()) / (1000 * 60 * 60 * 24));
-      lastActivityText = diffDays === 0 ? 'Today' : `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-      lastCommitText = lastActivity.toDateString();
-    }
+                    // Repos list
+                    const repoBox = document.getElementById("repos");
+                    repoBox.innerHTML = "";
 
-    // Update UI
-    document.querySelector('#stats .stat:nth-child(1) strong').textContent = publicRepos;
-    document.querySelector('#stats .stat:nth-child(2) strong').textContent = lastActivityText;
-    document.querySelector('#stats .stat:nth-child(3) strong').textContent = lastCommitText;
+                    if (repos.length === 0) {
+                        repoBox.innerHTML =
+                            '<p style="color: var(--muted)">Unable to load repositories right now.</p>';
+                        return;
+                    }
 
-    // Save cache
-    localStorage.setItem(cacheKey, JSON.stringify({
-      publicRepos,
-      lastActivityText,
-      lastCommitText,
-      cachedAt: Date.now()
-    }));
-
-    // Repos list
-    const repoBox = document.getElementById('repos');
-    repoBox.innerHTML = '';
-
-    if (repos.length === 0) {
-      repoBox.innerHTML = '<p style="color: var(--muted)">Unable to load repositories right now.</p>';
-      return;
-    }
-
-    repos.slice(0, 8).forEach(r => {
-      const el = document.createElement('div');
-      el.className = 'repo';
-      el.innerHTML = `
+                    repos.slice(0, 8).forEach((r) => {
+                        const el = document.createElement("div");
+                        el.className = "repo";
+                        el.innerHTML = `
         <h4><a href="${r.html_url}">${r.name}</a></h4>
-        <p>${r.description || 'No description provided.'}</p>
+        <p>${r.description || "No description provided."}</p>
         <small>Updated ${new Date(r.updated_at).toDateString()}</small>
       `;
-      repoBox.appendChild(el);
-    });
+                        repoBox.appendChild(el);
+                    });
+                } catch (err) {
+                    console.warn("GitHub API unavailable, using cached data");
 
-  } catch (err) {
-    console.warn('GitHub API unavailable, using cached data');
+                    if (cached) {
+                        const data = JSON.parse(cached);
+                        document.querySelector(
+                            "#stats .stat:nth-child(1) strong",
+                        ).textContent = data.publicRepos;
+                        document.querySelector(
+                            "#stats .stat:nth-child(2) strong",
+                        ).textContent = data.lastActivityText;
+                        document.querySelector(
+                            "#stats .stat:nth-child(3) strong",
+                        ).textContent = data.lastCommitText;
 
-    if (cached) {
-      const data = JSON.parse(cached);
-      document.querySelector('#stats .stat:nth-child(1) strong').textContent = data.publicRepos;
-      document.querySelector('#stats .stat:nth-child(2) strong').textContent = data.lastActivityText;
-      document.querySelector('#stats .stat:nth-child(3) strong').textContent = data.lastCommitText;
+                        const hint = document.createElement("div");
+                        hint.style.marginTop = "8px";
+                        hint.style.fontSize = "0.8rem";
+                        hint.style.color = "var(--muted)";
+                        hint.textContent = "Showing cached GitHub data";
+                        document.getElementById("stats").appendChild(hint);
+                    }
+                }
+            }
 
-      const hint = document.createElement('div');
-      hint.style.marginTop = '8px';
-      hint.style.fontSize = '0.8rem';
-      hint.style.color = 'var(--muted)';
-      hint.textContent = 'Showing cached GitHub data';
-      document.getElementById('stats').appendChild(hint);
-    }
-  }
-}
+            loadGitHub();
 
-loadGitHub();
+            // Terminal typing animation
+            const terminalLines = [
+                "$ whoami",
+                "Mohammed Musharaf",
+                "",
+                "$ cat profile.txt",
+                "Electronics & Communication Engineer",
+                "Open-source enthusiast",
+                "Linux & tooling focused",
+                "",
+                "$ github --status",
+                "User: musharaf7",
+                "Repos: active",
+                "Commits: consistent",
+                "",
+                "$ _",
+            ];
 
-// Terminal typing animation
-const terminalLines = [
-  '$ whoami',
-  'Mohammed Musharaf',
-  '',
-  '$ cat profile.txt',
-  'Electronics & Communication Engineer',
-  'Open-source enthusiast',
-  'Linux & tooling focused',
-  '',
-  '$ github --status',
-  'User: musharaf7',
-  'Repos: active',
-  'Commits: consistent',
-  '',
-  '$ _'
-];
+            const terminal = document.getElementById("terminal");
+            let line = 0,
+                char = 0;
 
-const terminal = document.getElementById('terminal');
-let line = 0, char = 0;
+            function typeTerminal() {
+                if (line < terminalLines.length) {
+                    if (char < terminalLines[line].length) {
+                        terminal.textContent += terminalLines[line][char++];
+                        setTimeout(typeTerminal, 30);
+                    } else {
+                        terminal.textContent += "\n";
+                        line++;
+                        char = 0;
+                        setTimeout(typeTerminal, 200);
+                    }
+                }
+            }
 
-function typeTerminal() {
-  if (line < terminalLines.length) {
-    if (char < terminalLines[line].length) {
-      terminal.textContent += terminalLines[line][char++];
-      setTimeout(typeTerminal, 30);
-    } else {
-      terminal.textContent += '\n';
-      line++; char = 0;
-      setTimeout(typeTerminal, 200);
-    }
-  }
-}
+            typeTerminal();
 
-typeTerminal();
+            // Reveal on scroll
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(
+                        (e) =>
+                            e.isIntersecting &&
+                            e.target.classList.add("visible"),
+                    );
+                },
+                { threshold: 0.6 },
+            );
 
-// Reveal on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-}, { threshold: 0.6 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => observer.observe(el));
+        </script>
+    </body>
 </html>
