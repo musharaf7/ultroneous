@@ -552,8 +552,9 @@ Available system commands:
 `,
             whoami: () => `
 <span class="term-prompt">User:</span> Mohammed Musharaf (m7sh)
-<span class="term-prompt">Current Role:</span> Corporate Analyst @ Insurance Firm
-<span class="term-prompt">Engineering:</span> Electronics & Communication Engineer (VTU Belagavi)
+<span class="term-prompt">Current Role:</span> Analyst @ Insurance Firm (Bangalore, India · 2026—Present)
+<span class="term-prompt">Prior Role:</span> Junior Planning Engineer (Saudi Arabia · 2024—2025)
+<span class="term-prompt">Education:</span> B.E. in Electronics & Communication (VTU Belagavi · 2019—2023)
 <span class="term-prompt">Affiliation:</span> Member @ IEEE
 <span class="term-prompt">Focus:</span> Corporate analytics by day; Linux customization, Omarchy ricing & open-source tooling by night.
 `,
@@ -571,8 +572,9 @@ Available system commands:
                   <b>Theme</b>: everpuccin-m7sh [Catppuccin + Everforest]
                   <b>Terminal</b>: Ghostty / Kitty
                   <b>CPU</b>: Intel / AMD Multi-Core
-                  <b>Role</b>: Corporate Analyst @ Insurance Firm
-                  <b>Degree</b>: B.E. in Electronics & Communication (VTU)
+                  <b>Role</b>: Analyst @ Insurance Firm (Bangalore, India)
+                  <b>Prior</b>: Jr. Planning Engineer (Saudi Arabia)
+                  <b>Degree</b>: B.E. in ECE, VTU Belagavi (2019-2023)
 </pre>
 </div>
 `,
