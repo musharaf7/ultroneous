@@ -1,398 +1,621 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mohammed Musharaf · GitHub Portfolio</title>
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammed Musharaf · Electronics & Communication Engineer & Creative Developer</title>
+    <meta name="description" content="Portfolio of Mohammed Musharaf (m7sh) - Electronics & Communication Engineer (VTU Belagavi), IEEE Member, Omarchy Linux rice artisan, and open-source craftsman." />
+    <meta name="keywords" content="Mohammed Musharaf, m7sh, Electronics Engineer, Omarchy, Hyprland, Linux Rice, Python, QML, VTU Belagavi, IEEE" />
+    <meta name="author" content="Mohammed Musharaf" />
+    <meta property="og:title" content="Mohammed Musharaf · ECE & Creative Developer Portfolio" />
+    <meta property="og:description" content="Crafting high-speed code, minimal tooling, and fluid Linux desktop experiences." />
+    <meta property="og:url" content="https://m7sh.github.io/m7sh/" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238b5cf6'/><text x='16' y='21' font-family='monospace' font-weight='bold' font-size='14' fill='white' text-anchor='middle'>M7</text></svg>" />
 
-        <!-- Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-            rel="stylesheet"
-        />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        <style>
-            :root {
-                --bg: #0a0a0a;
-                --surface: #111111;
-                --text: #eaeaea;
-                --muted: #9ca3af;
-                --border: #1f2937;
-            }
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
+    <!-- Lenis Smooth Inertia Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
-            body {
-                font-family: "Inter", sans-serif;
-                background: var(--bg);
-                color: var(--text);
-                line-height: 1.6;
-            }
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
 
-            .container {
-                max-width: 900px;
-                margin: auto;
-                padding: 80px 20px 120px;
-            }
+    <!-- Custom Morphing Fluid Cursor -->
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
 
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 100px;
-            }
+    <!-- Interactive Fluid Background Canvas -->
+    <canvas id="fluid-canvas"></canvas>
 
-            header h1 {
-                font-size: 1.4rem;
-                font-weight: 600;
-            }
+    <!-- Fullscreen Matrix Digital Rain Simulation (Toggleable via CLI/Palette) -->
+    <canvas id="matrix-canvas"></canvas>
 
-            header nav a {
-                margin-left: 20px;
-                font-size: 0.95rem;
-                color: var(--muted);
-            }
+    <!-- Ambient Mesh Glows -->
+    <div class="ambient-lights">
+        <div class="ambient-glow one"></div>
+        <div class="ambient-glow two"></div>
+        <div class="ambient-glow three"></div>
+    </div>
 
-            header nav a:hover {
-                color: var(--text);
-            }
+    <!-- SITE WRAPPER -->
+    <div class="site-wrapper">
 
-            /* Hero */
-            .hero h2 {
-                font-size: 2.6rem;
-                font-weight: 600;
-                margin-bottom: 16px;
-            }
+        <!-- FLOATING DOCK NAVBAR -->
+        <nav class="navbar-dock" id="navbar">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-logo">M7</span>
+                <span>Musharaf</span>
+                <span class="brand-status-dot" title="Available for projects & collaboration"></span>
+            </a>
 
-            .hero p {
-                max-width: 520px;
-                color: var(--muted);
-                font-size: 1.05rem;
-            }
+            <ul class="nav-menu">
+                <li><a href="#bento" class="nav-link"><i data-lucide="cpu" style="width:15px; height:15px;"></i> Stack</a></li>
+                <li><a href="#repos" class="nav-link"><i data-lucide="git-branch" style="width:15px; height:15px;"></i> Repos</a></li>
+                <li><a href="#terminal" class="nav-link"><i data-lucide="terminal" style="width:15px; height:15px;"></i> Terminal</a></li>
+                <li><a href="#timeline" class="nav-link"><i data-lucide="milestone" style="width:15px; height:15px;"></i> Journey</a></li>
+                <li><a href="#contact" class="nav-link"><i data-lucide="send" style="width:15px; height:15px;"></i> Contact</a></li>
+            </ul>
 
-            section {
-                margin-top: 120px;
-            }
+            <div class="nav-actions">
+                <button class="nav-btn" id="open-palette-btn" title="Open Command Palette (Ctrl+K)">
+                    <i data-lucide="search" style="width:14px; height:14px;"></i>
+                    <span class="kbd-shortcut">⌘K</span>
+                </button>
 
-            section h3 {
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-bottom: 24px;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--muted);
-            }
+                <button class="nav-btn" id="sound-toggle-btn" title="Toggle Sound FX">
+                    <i data-lucide="volume-x" style="width:14px; height:14px;"></i>
+                    <span>SFX OFF</span>
+                </button>
 
-            .stats {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 24px;
-            }
+                <button class="nav-btn" id="theme-toggle-btn" title="Cycle Color Theme">
+                    <i data-lucide="palette" style="width:14px; height:14px;"></i>
+                    <span id="theme-btn-label">Obsidian</span>
+                </button>
 
-            .stat {
-                border: 1px solid var(--border);
-                padding: 24px;
-                background: var(--surface);
-            }
+                <a href="https://github.com/m7sh" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-icon" title="View GitHub Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </a>
+            </div>
+        </nav>
 
-            .stat strong {
-                display: block;
-                font-size: 1.8rem;
-                margin-bottom: 6px;
-            }
+        <!-- HERO SECTION -->
+        <header class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
 
-            .stat span {
-                color: var(--muted);
-                font-size: 0.9rem;
-            }
+                    <!-- Left: Kinetic Hero Typography & Call-to-actions -->
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i data-lucide="zap" style="width:14px; height:14px;"></i>
+                            <span>ECE GRADUATE @ VTU · LINUX RICE ARCHITECT</span>
+                        </div>
 
-            .repos {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+                        <h1 class="hero-title">
+                            Crafting <span class="shimmer-text">High-Speed Code,</span> Minimal Tooling & Fluid Experiences.
+                        </h1>
 
-            .repo {
-                border: 1px solid var(--border);
-                padding: 20px;
-                background: var(--surface);
-            }
+                        <p class="hero-description">
+                            I'm <strong>Mohammed Musharaf</strong> — an Electronics & Communication Engineer and open-source artisan. Born in India, graduated from <strong>Visveswaraya Technological University (VTU) Belagavi</strong>, and an active member @ <strong>IEEE</strong>. I specialize in Linux customization (Omarchy / Hyprland), low-latency tooling, and interactive digital interfaces.
+                        </p>
 
-            .repo h4 {
-                font-size: 1.05rem;
-                margin-bottom: 6px;
-            }
+                        <div class="hero-actions">
+                            <a href="#repos" class="btn-primary">
+                                <i data-lucide="folder-git-2" style="width:18px; height:18px;"></i>
+                                <span>Explore Projects</span>
+                            </a>
+                            <a href="#terminal" class="btn-secondary">
+                                <i data-lucide="terminal" style="width:18px; height:18px;"></i>
+                                <span>Launch CLI</span>
+                            </a>
+                            <button class="btn-secondary copy-email-trigger">
+                                <i data-lucide="copy" style="width:16px; height:16px;"></i>
+                                <span>Copy Email</span>
+                            </button>
+                        </div>
 
-            .repo p {
-                color: var(--muted);
-                font-size: 0.95rem;
-                margin-bottom: 10px;
-            }
+                        <div class="hero-quick-tags">
+                            <span class="quick-tag"><i data-lucide="terminal" style="width:13px; height:13px;"></i> Omarchy</span>
+                            <span class="quick-tag"><i data-lucide="layout" style="width:13px; height:13px;"></i> Hyprland</span>
+                            <span class="quick-tag"><i data-lucide="code-2" style="width:13px; height:13px;"></i> Python</span>
+                            <span class="quick-tag"><i data-lucide="cpu" style="width:13px; height:13px;"></i> Embedded C</span>
+                            <span class="quick-tag"><i data-lucide="layers" style="width:13px; height:13px;"></i> QML</span>
+                            <span class="quick-tag"><i data-lucide="award" style="width:13px; height:13px;"></i> Member @ IEEE</span>
+                        </div>
+                    </div>
 
-            .repo small {
-                color: var(--muted);
-            }
+                    <!-- Right: 3D Holographic Perspective Tilt Card -->
+                    <div class="hero-card-perspective">
+                        <div class="hero-3d-card">
+                            <div class="card-avatar-wrapper">
+                                <div class="card-avatar-ring"></div>
+                                <img src="https://avatars.githubusercontent.com/u/71885326?v=4" alt="Mohammed Musharaf" class="card-avatar-img" />
+                            </div>
 
-            footer {
-                margin-top: 140px;
-                color: var(--muted);
-                font-size: 0.9rem;
-            }
+                            <div class="card-user-info">
+                                <h2 class="card-user-name">Mohammed Musharaf</h2>
+                                <p class="card-user-handle">@m7sh · M7ßh</p>
+                            </div>
 
-            .reveal {
-                opacity: 0;
-                transform: translateY(40px);
-                transition: all 0.8s ease;
-            }
-            .reveal.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1>Musharaf</h1>
-                <nav>
-                    <a href="https://github.com/m7sh">GitHub</a>
-                    <a href="mailto:mdmusharaf720@gmail.com">Email</a>
-                </nav>
-            </header>
+                            <div class="card-system-pills">
+                                <div class="sys-pill">
+                                    <span class="sys-pill-label">Operating System</span>
+                                    <span class="sys-pill-value">Omarchy Linux</span>
+                                </div>
+                                <div class="sys-pill">
+                                    <span class="sys-pill-label">Window Manager</span>
+                                    <span class="sys-pill-value">Hyprland (Wayland)</span>
+                                </div>
+                                <div class="sys-pill">
+                                    <span class="sys-pill-label">Degree</span>
+                                    <span class="sys-pill-value">B.E. in ECE (VTU)</span>
+                                </div>
+                                <div class="sys-pill">
+                                    <span class="sys-pill-label">Affiliation</span>
+                                    <span class="sys-pill-value">Member @ IEEE</span>
+                                </div>
+                            </div>
 
-            <div class="hero">
-                <div
-                    id="terminal"
-                    style="
-                        font-family:
-                            ui-monospace, SFMono-Regular, Menlo, monospace;
-                        background: var(--surface);
-                        border: 1px solid var(--border);
-                        padding: 24px;
-                        margin-bottom: 40px;
-                        min-height: 220px;
-                        white-space: pre-wrap;
-                    "
-                ></div>
+                            <div class="card-pulse-bar">
+                                <span class="pulse-led">Active & Ready for collaboration</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">VTU Belagavi</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="reveal">
-                    <h2>
-                        Electronics & Communication Engineer<br />focused on
-                        open-source and clean tooling.
-                    </h2>
-                    <p>
-                        I build minimal web interfaces, customize Linux
-                        environments, and actively maintain GitHub repositories.
-                    </p>
                 </div>
             </div>
+        </header>
 
-            <section>
-                <h3>GitHub Overview</h3>
-                <div class="stats" id="stats">
-                    <!-- cached hint -->
-                    <div class="stat">
-                        <strong>—</strong><span>Public Repositories</span>
+        <!-- BENTO GRID SECTION -->
+        <section class="bento-section" id="bento">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">01 // Engineering Spectrum</span>
+                    <h2 class="section-title scramble-hover">Hardware, Linux Customization & Clean Architecture</h2>
+                    <p class="section-subtitle">A balanced fusion of rigorous electronics engineering foundations and modern software craft.</p>
+                </div>
+
+                <div class="bento-grid">
+
+                    <!-- Card 1: ECE & Signal Processing (Span 8) -->
+                    <div class="bento-card bento-col-8">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="activity" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h3 class="bento-title">Electronics & Communication Engineering</h3>
+                        <p class="bento-desc">
+                            Graduated from <strong>Visveswaraya Technological University (VTU) Belagavi</strong> in ECE and active member of <strong>IEEE</strong>. Experienced in digital signal processing, microcontroller firmware, embedded systems, circuit design, and MATLAB simulations.
+                        </p>
+                        <!-- Live Interactive Oscilloscope -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.78rem; color: var(--text-subtle); font-family: 'JetBrains Mono', monospace;">
+                            <span>LIVE OSCILLOSCOPE HARMONIC SIMULATOR</span>
+                            <span>HOVER TO MODULATE FREQUENCY</span>
+                        </div>
+                        <canvas id="oscilloscope-canvas"></canvas>
                     </div>
-                    <div class="stat">
-                        <strong>—</strong><span>Last Activity</span>
+
+                    <!-- Card 2: Linux Rice & Omarchy Theming (Span 4) -->
+                    <div class="bento-card bento-col-4">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="palette" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h3 class="bento-title">Omarchy & Hyprland Rice Artisan</h3>
+                        <p class="bento-desc">
+                            Author of <strong>everpuccin-m7sh</strong> and <strong>mush-omarchy-cricket</strong>. Blending Catppuccin, Everforest, and Wayland animations for the ultimate developer desktop aesthetic.
+                        </p>
+                        <div style="font-size: 0.78rem; color: var(--text-subtle); margin-top: auto; font-family: 'JetBrains Mono', monospace;">
+                            CLICK SWATCH TO LIVE SWITCH THEME:
+                        </div>
+                        <div class="rice-swatches">
+                            <div class="swatch-pill" data-theme-choice="obsidian" style="background: #8b5cf6;" title="Obsidian Cyber">Obsidian</div>
+                            <div class="swatch-pill" data-theme-choice="everpuccin" style="background: #a7c080;" title="Everpuccin">Forest</div>
+                            <div class="swatch-pill" data-theme-choice="matrix" style="background: #00ff66;" title="Matrix Emerald">Matrix</div>
+                            <div class="swatch-pill" data-theme-choice="cyberpunk" style="background: #ff007f;" title="Cyberpunk Neon">Cyber</div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <strong>—</strong><span>Last Commit</span>
+
+                    <!-- Card 3: Interactive Physics Stack Pills (Span 6) -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="layers" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h3 class="bento-title">Interactive Tech & Tooling Arsenal</h3>
+                        <p class="bento-desc">
+                            A curated suite of programming languages, frameworks, and system tools utilized in daily engineering workflows.
+                        </p>
+                        <div class="physics-pills-container">
+                            <span class="interactive-pill">🐍 Python</span>
+                            <span class="interactive-pill">⚡ C Programming</span>
+                            <span class="interactive-pill">☕ Java</span>
+                            <span class="interactive-pill">🌐 JavaScript</span>
+                            <span class="interactive-pill">🎨 QML (Qt)</span>
+                            <span class="interactive-pill">📊 MATLAB</span>
+                            <span class="interactive-pill">💻 Bash / Zsh</span>
+                            <span class="interactive-pill">🐧 Arch / Omarchy</span>
+                            <span class="interactive-pill">🪟 Hyprland</span>
+                            <span class="interactive-pill">📡 Embedded C</span>
+                            <span class="interactive-pill">🐙 Git & GitHub</span>
+                            <span class="interactive-pill">⌨️ Neovim</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Intelligent Voice & Desktop Tools (Span 6) -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="mic" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h3 class="bento-title">Voice AI & Automation Tooling</h3>
+                        <p class="bento-desc">
+                            Built <strong>Desktop-Voice-Assistant</strong>, an autonomous Python-based system designed for hands-free workflow automation, voice query processing, application control, and seamless OS management.
+                        </p>
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-top: auto;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--secondary); margin-bottom: 6px;">
+                                <span>VOICE ASSISTANT ENGINE</span>
+                                <span>STATUS: READY</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+                                "Execute voice commands, launch apps, fetch live internet data & control audio hands-free."
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GITHUB TELEMETRY & REPOSITORIES SECTION -->
+        <section class="github-section" id="repos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">02 // Open Source Repository Hub</span>
+                    <h2 class="section-title scramble-hover">Public Repositories & Real-Time Telemetry</h2>
+                    <p class="section-subtitle">Direct live telemetry synchronized with the GitHub API for @m7sh, featuring open source tools, themes, and engineering prototypes.</p>
+                </div>
+
+                <!-- Telemetry Counters Bar -->
+                <div class="github-telemetry-bar">
+                    <div class="telemetry-card">
+                        <i data-lucide="git-pull-request" class="telemetry-icon" style="width:28px; height:28px;"></i>
+                        <span class="telemetry-val" id="telemetry-repos-count">6</span>
+                        <span class="telemetry-label">Public Repositories</span>
+                    </div>
+                    <div class="telemetry-card">
+                        <i data-lucide="star" class="telemetry-icon" style="width:28px; height:28px;"></i>
+                        <span class="telemetry-val" id="telemetry-stars-count">4</span>
+                        <span class="telemetry-label">GitHub Stars</span>
+                    </div>
+                    <div class="telemetry-card">
+                        <i data-lucide="code" class="telemetry-icon" style="width:28px; height:28px;"></i>
+                        <span class="telemetry-val" id="telemetry-languages-count">6</span>
+                        <span class="telemetry-label">Primary Languages</span>
+                    </div>
+                    <div class="telemetry-card">
+                        <i data-lucide="clock" class="telemetry-icon" style="width:28px; height:28px;"></i>
+                        <span class="telemetry-val" style="font-size: 1.4rem;" id="telemetry-last-commit">Consistent</span>
+                        <span class="telemetry-label">Commit Activity</span>
                     </div>
                 </div>
-            </section>
 
-            <section>
-                <h3>Repositories</h3>
-                <div class="repos" id="repos"></div>
-            </section>
+                <!-- Filter Chips Bar -->
+                <div class="repos-filter-bar">
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter="all">All Projects</button>
+                        <button class="filter-chip" data-filter="linux">Linux & Desktop Rice</button>
+                        <button class="filter-chip" data-filter="python">Python & Tools</button>
+                        <button class="filter-chip" data-filter="web">Web & Minimalist</button>
+                    </div>
 
-            <footer>© 2025 Mohammed Musharaf · Data from GitHub API</footer>
+                    <a href="https://github.com/m7sh?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 7px 16px; font-size: 0.85rem;">
+                        <span>View on GitHub</span>
+                        <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                    </a>
+                </div>
+
+                <!-- Dynamic Repositories Grid Container -->
+                <div class="repos-grid" id="repos-container">
+                    <!-- Populated dynamically via JavaScript with skeleton fallback -->
+                    <div class="repo-card skeleton" style="height: 240px;"></div>
+                    <div class="repo-card skeleton" style="height: 240px;"></div>
+                    <div class="repo-card skeleton" style="height: 240px;"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE NEOFETCH TERMINAL SECTION -->
+        <section class="terminal-section" id="terminal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">03 // Interactive Command Shell</span>
+                    <h2 class="section-title scramble-hover">musharaf@omarchy:~$ Terminal CLI</h2>
+                    <p class="section-subtitle">A fully functioning interactive virtual terminal. Type commands directly or click the quick badges to inspect system information.</p>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red" title="Close"></span>
+                            <span class="dot yellow" title="Minimize"></span>
+                            <span class="dot green" title="Maximize"></span>
+                        </div>
+                        <span class="terminal-title">musharaf@omarchy: ~ (zsh / wayland)</span>
+                        <div class="terminal-controls">
+                            <button class="term-btn cmd-badge" data-cmd="clear">clear</button>
+                            <button class="term-btn cmd-badge" data-cmd="help">help</button>
+                        </div>
+                    </div>
+
+                    <div class="terminal-body">
+                        <div class="terminal-history" id="terminal-history-box">
+                            <!-- Commands history dynamically appended here -->
+                        </div>
+
+                        <div class="terminal-input-row">
+                            <span class="term-prompt">musharaf@omarchy:~$</span>
+                            <input type="text" id="terminal-cli-input" class="terminal-input" placeholder="type 'help', 'neofetch', 'theme everpuccin', 'repos'..." autocomplete="off" spellcheck="false" />
+                            <span class="term-cursor-blink"></span>
+                        </div>
+                    </div>
+
+                    <div class="terminal-quick-cmds">
+                        <span>Quick Shortcuts:</span>
+                        <button class="cmd-badge" data-cmd="neofetch">neofetch</button>
+                        <button class="cmd-badge" data-cmd="whoami">whoami</button>
+                        <button class="cmd-badge" data-cmd="repos">repos</button>
+                        <button class="cmd-badge" data-cmd="skills">skills</button>
+                        <button class="cmd-badge" data-cmd="matrix">matrix</button>
+                        <button class="cmd-badge" data-cmd="theme everpuccin">theme everpuccin</button>
+                        <button class="cmd-badge" data-cmd="sound">sound toggle</button>
+                        <button class="cmd-badge" data-cmd="contact">contact</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & ROADMAP TIMELINE SECTION -->
+        <section class="timeline-section" id="timeline">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">04 // Trajectory & Milestones</span>
+                    <h2 class="section-title scramble-hover">Engineering Journey & Milestones</h2>
+                    <p class="section-subtitle">Academic accomplishments, open source projects, and technical evolutions.</p>
+                </div>
+
+                <div class="timeline-track">
+                    <div class="timeline-line"></div>
+
+                    <!-- Milestone 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">2024 — PRESENT</div>
+                            <h3 class="timeline-role">Linux Rice Artisan & Custom Open-Source Tooling</h3>
+                            <p class="timeline-org">Omarchy Linux · Hyprland · GitHub Open Source</p>
+                            <p class="timeline-text">
+                                Developing personalized Wayland widgets like <strong>mush-omarchy-cricket</strong> (live sports widget in QML/C++) and the acclaimed <strong>everpuccin-m7sh</strong> theme integrating Catppuccin and Everforest aesthetics for terminal emulators, GTK, and Hyprland.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">2022 — 2024</div>
+                            <h3 class="timeline-role">Desktop Automation & Voice AI Engineering</h3>
+                            <p class="timeline-org">Python Systems · Audio Processing · Workflow Automation</p>
+                            <p class="timeline-text">
+                                Built <strong>Desktop-Voice-Assistant</strong> in Python, integrating speech recognition, hands-free automation scripts, application management, and query pipelines for streamlined developer workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">2019 — 2023</div>
+                            <h3 class="timeline-role">Bachelor of Engineering in Electronics & Communication</h3>
+                            <p class="timeline-org">Visveswaraya Technological University (VTU), Belagavi · Member @ IEEE</p>
+                            <p class="timeline-text">
+                                Graduated with core focus on Signal Processing, Microcontrollers, Embedded C, Circuit Design, MATLAB, and Communication Networks. Active member of IEEE participating in technical symposia and engineering projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">2018 — 2021</div>
+                            <h3 class="timeline-role">Foundations in Web Development & Software</h3>
+                            <p class="timeline-org">HTML5 · CSS3 · Modern JavaScript · Linux Environments</p>
+                            <p class="timeline-text">
+                                Engineered early web projects, portfolio prototypes, and minimalist tooling that laid the groundwork for high-performance frontend interfaces.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & CONNECT SECTION -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">05 // Get In Touch</span>
+                    <h2 class="section-title scramble-hover">Initiate Transmission</h2>
+                    <p class="section-subtitle">Whether you have an interesting project, an open-source collaboration, or an engineering inquiry — feel free to connect.</p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <!-- Direct Channels -->
+                    <div class="contact-channels">
+
+                        <div class="channel-card copy-email-trigger" title="Click to copy email address">
+                            <div class="channel-left">
+                                <div class="channel-icon">
+                                    <i data-lucide="mail" style="width:20px; height:20px;"></i>
+                                </div>
+                                <div>
+                                    <div class="channel-name">Direct Email</div>
+                                    <div class="channel-value">mdmusharaf720@gmail.com</div>
+                                </div>
+                            </div>
+                            <button class="nav-btn" style="padding: 6px 12px; font-size: 0.78rem;">
+                                <i data-lucide="copy" style="width:13px; height:13px;"></i> Copy
+                            </button>
+                        </div>
+
+                        <a href="https://github.com/m7sh" target="_blank" rel="noopener noreferrer" class="channel-card">
+                            <div class="channel-left">
+                                <div class="channel-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="channel-name">GitHub Profile</div>
+                                    <div class="channel-value">github.com/m7sh</div>
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-up-right" style="width:18px; height:18px; color:var(--text-subtle);"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/" target="_blank" rel="noopener noreferrer" class="channel-card">
+                            <div class="channel-left">
+                                <div class="channel-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                </div>
+                                <div>
+                                    <div class="channel-name">LinkedIn</div>
+                                    <div class="channel-value">mohammed-musharaf-122523220</div>
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-up-right" style="width:18px; height:18px; color:var(--text-subtle);"></i>
+                        </a>
+
+                        <a href="https://twitter.com/i_musharaf725" target="_blank" rel="noopener noreferrer" class="channel-card">
+                            <div class="channel-left">
+                                <div class="channel-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="channel-name">Twitter / X</div>
+                                    <div class="channel-value">@i_musharaf725</div>
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-up-right" style="width:18px; height:18px; color:var(--text-subtle);"></i>
+                        </a>
+
+                        <div class="channel-card" style="cursor: default;">
+                            <div class="channel-left">
+                                <div class="channel-icon">
+                                    <i data-lucide="map-pin" style="width:20px; height:20px;"></i>
+                                </div>
+                                <div>
+                                    <div class="channel-name">Location & Education</div>
+                                    <div class="channel-value">Belagavi / India · VTU Graduate</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Glassmorphic FormSubmit Contact Form -->
+                    <div class="contact-form-card">
+                        <form id="portfolio-contact-form" action="https://formsubmit.co/fbc018aa2b5ecd094234c482c568eec1" method="POST" target="_blank">
+                            <input type="hidden" name="_captcha" value="true" />
+                            <input type="hidden" name="_template" value="table" />
+                            <input type="hidden" name="_subject" value="New Portfolio Message from m7sh website!" />
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Your Full Name</label>
+                                <input type="text" id="contact-name" name="name" class="form-input" placeholder="Jane Doe" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" class="form-input" placeholder="jane@domain.com" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" class="form-textarea" rows="5" placeholder="Share your project ideas, opportunities, or engineering thoughts..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                                <i data-lucide="send" style="width:18px; height:18px;"></i>
+                                <span>Transmit Message</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        © 2026 <strong>Mohammed Musharaf (m7sh)</strong> · Built with fluid physics & pure performance.
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://github.com/m7sh" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://twitter.com/i_musharaf725" target="_blank" rel="noopener noreferrer">Twitter/X</a>
+                        <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="#hero">Back to Top ↑</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- COMMAND PALETTE MODAL (⌘K / Ctrl+K) -->
+    <div class="command-palette-backdrop" id="command-palette-backdrop">
+        <div class="command-palette-modal">
+            <div class="palette-search-bar">
+                <i data-lucide="search" style="width:18px; height:18px; color:var(--text-subtle);"></i>
+                <input type="text" id="palette-input" class="palette-input" placeholder="Type a command, section name, or theme..." />
+                <span class="kbd-shortcut">ESC</span>
+            </div>
+
+            <div class="palette-results" id="palette-results">
+                <!-- Dynamically injected results -->
+            </div>
+
+            <div class="palette-footer">
+                <span>Navigate quickly with keyboard</span>
+                <div class="palette-keys">
+                    <span>↑↓ Navigate</span>
+                    <span>↵ Select</span>
+                    <span>ESC Close</span>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <script>
-            const USER = "m7sh";
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
 
-            async function loadGitHub() {
-                const cacheKey = "github_overview_cache_v1";
-                const cached = localStorage.getItem(cacheKey);
+    <!-- Core Script -->
+    <script src="src/main.js"></script>
 
-                try {
-                    const userRes = await fetch(
-                        `https://api.github.com/users/${USER}`,
-                    );
-                    if (!userRes.ok) throw new Error("Failed to fetch user");
-                    const user = await userRes.json();
-
-                    const repoRes = await fetch(
-                        `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`,
-                    );
-                    if (!repoRes.ok) throw new Error("Failed to fetch repos");
-                    const reposData = await repoRes.json();
-                    const repos = Array.isArray(reposData) ? reposData : [];
-
-                    // Public repos
-                    const publicRepos = user.public_repos ?? "—";
-
-                    // Compute last activity from pushed_at
-                    let lastActivity = null;
-                    for (const repo of repos) {
-                        if (repo.pushed_at) {
-                            const d = new Date(repo.pushed_at);
-                            if (!lastActivity || d > lastActivity)
-                                lastActivity = d;
-                        }
-                    }
-
-                    // Last activity: X days ago
-                    let lastActivityText = "—";
-                    let lastCommitText = "—";
-                    if (lastActivity) {
-                        const diffDays = Math.floor(
-                            (Date.now() - lastActivity.getTime()) /
-                                (1000 * 60 * 60 * 24),
-                        );
-                        lastActivityText =
-                            diffDays === 0
-                                ? "Today"
-                                : `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
-                        lastCommitText = lastActivity.toDateString();
-                    }
-
-                    // Update UI
-                    document.querySelector(
-                        "#stats .stat:nth-child(1) strong",
-                    ).textContent = publicRepos;
-                    document.querySelector(
-                        "#stats .stat:nth-child(2) strong",
-                    ).textContent = lastActivityText;
-                    document.querySelector(
-                        "#stats .stat:nth-child(3) strong",
-                    ).textContent = lastCommitText;
-
-                    // Save cache
-                    localStorage.setItem(
-                        cacheKey,
-                        JSON.stringify({
-                            publicRepos,
-                            lastActivityText,
-                            lastCommitText,
-                            cachedAt: Date.now(),
-                        }),
-                    );
-
-                    // Repos list
-                    const repoBox = document.getElementById("repos");
-                    repoBox.innerHTML = "";
-
-                    if (repos.length === 0) {
-                        repoBox.innerHTML =
-                            '<p style="color: var(--muted)">Unable to load repositories right now.</p>';
-                        return;
-                    }
-
-                    repos.slice(0, 8).forEach((r) => {
-                        const el = document.createElement("div");
-                        el.className = "repo";
-                        el.innerHTML = `
-        <h4><a href="${r.html_url}">${r.name}</a></h4>
-        <p>${r.description || "No description provided."}</p>
-        <small>Updated ${new Date(r.updated_at).toDateString()}</small>
-      `;
-                        repoBox.appendChild(el);
-                    });
-                } catch (err) {
-                    console.warn("GitHub API unavailable, using cached data");
-
-                    if (cached) {
-                        const data = JSON.parse(cached);
-                        document.querySelector(
-                            "#stats .stat:nth-child(1) strong",
-                        ).textContent = data.publicRepos;
-                        document.querySelector(
-                            "#stats .stat:nth-child(2) strong",
-                        ).textContent = data.lastActivityText;
-                        document.querySelector(
-                            "#stats .stat:nth-child(3) strong",
-                        ).textContent = data.lastCommitText;
-
-                        const hint = document.createElement("div");
-                        hint.style.marginTop = "8px";
-                        hint.style.fontSize = "0.8rem";
-                        hint.style.color = "var(--muted)";
-                        hint.textContent = "Showing cached GitHub data";
-                        document.getElementById("stats").appendChild(hint);
-                    }
-                }
-            }
-
-            loadGitHub();
-
-            // Terminal typing animation
-            const terminalLines = [
-                "$ whoami",
-                "Mohammed Musharaf",
-                "",
-                "$ cat profile.txt",
-                "Electronics & Communication Engineer",
-                "Open-source enthusiast",
-                "Linux & tooling focused",
-                "",
-                "$ github --status",
-                "User: m7sh",
-                "Repos: active",
-                "Commits: consistent",
-                "",
-                "$ _",
-            ];
-
-            const terminal = document.getElementById("terminal");
-            let line = 0,
-                char = 0;
-
-            function typeTerminal() {
-                if (line < terminalLines.length) {
-                    if (char < terminalLines[line].length) {
-                        terminal.textContent += terminalLines[line][char++];
-                        setTimeout(typeTerminal, 30);
-                    } else {
-                        terminal.textContent += "\n";
-                        line++;
-                        char = 0;
-                        setTimeout(typeTerminal, 200);
-                    }
-                }
-            }
-
-            typeTerminal();
-
-            // Reveal on scroll
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(
-                        (e) =>
-                            e.isIntersecting &&
-                            e.target.classList.add("visible"),
-                    );
-                },
-                { threshold: 0.6 },
-            );
-
-            document
-                .querySelectorAll(".reveal")
-                .forEach((el) => observer.observe(el));
-        </script>
-    </body>
+</body>
 </html>

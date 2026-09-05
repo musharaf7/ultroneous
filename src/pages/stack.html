@@ -1,50 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="obsidian">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stack</title>
-    <link rel="stylesheet" href="../styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Stack & Arsenal · Mohammed Musharaf</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238b5cf6'/><text x='16' y='21' font-family='monospace' font-weight='bold' font-size='14' fill='white' text-anchor='middle'>M7</text></svg>" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
-
 <body>
-    <header>
-        <ul>
-            <a href="../../index.html">
-                <li>Home</li>
-            </a>
-            <a href="contact.html">
-                <li>Contact</li>
-            </a>
-        </ul>
-    </header>
 
-    <section>
-        <h2 class="subtitle">stack</h2>
-        <br />
-        <h2>C programming language</h2>
-        <h2>Java programming language</h2>
-        <h2>HTML</h2>
-        <H2>CSS</H2>
-        <H2>Python</H2>
-        <h2>MATLAB</h2>
-    </section>
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
+    <canvas id="fluid-canvas"></canvas>
 
-    <footer class="sub-pages-footer">
-        <ul>
-            <a href="https://twitter.com/i_musharaf725">
-                <li>Twitter</li>
-            </a>
-            <a href="https://github.com/mush725-beep">
-                <li>GitHub</li>
-            </a>
-            <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/">
-                <li>LinkedIn</li>
-            </a>
-        </ul>
-    </footer>
+    <div class="ambient-lights">
+        <div class="ambient-glow one"></div>
+        <div class="ambient-glow two"></div>
+    </div>
 
+    <div class="site-wrapper">
+
+        <!-- NAVBAR -->
+        <nav class="navbar-dock">
+            <a href="../../index.html" class="nav-brand">
+                <span class="brand-logo">M7</span>
+                <span>Musharaf</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link"><i data-lucide="home" style="width:15px; height:15px;"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i data-lucide="user" style="width:15px; height:15px;"></i> About</a></li>
+                <li><a href="work.html" class="nav-link"><i data-lucide="folder-git-2" style="width:15px; height:15px;"></i> Work</a></li>
+                <li><a href="stack.html" class="nav-link active"><i data-lucide="cpu" style="width:15px; height:15px;"></i> Stack</a></li>
+                <li><a href="contact.html" class="nav-link"><i data-lucide="mail" style="width:15px; height:15px;"></i> Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" title="Cycle Color Theme">
+                    <i data-lucide="palette" style="width:14px; height:14px;"></i>
+                    <span id="theme-btn-label">Theme</span>
+                </button>
+                <a href="https://github.com/m7sh" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </a>
+            </div>
+        </nav>
+
+        <!-- SUBPAGE CONTENT -->
+        <main class="subpage-wrapper">
+            <div class="container">
+
+                <a href="../../index.html" class="subpage-back-link">
+                    <i data-lucide="arrow-left" style="width:16px; height:16px;"></i>
+                    <span>Back to Overview</span>
+                </a>
+
+                <div class="section-header" style="margin-bottom: 36px;">
+                    <span class="section-label">Toolkit // Capabilities</span>
+                    <h1 class="section-title">Technical Stack & Engineering Arsenal</h1>
+                    <p class="section-subtitle">A comprehensive breakdown of software languages, hardware engineering tools, and Linux system customization.</p>
+                </div>
+
+                <div class="bento-grid">
+
+                    <!-- Category 1: Languages -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="code-2" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h2 class="bento-title">Programming & Scripting Languages</h2>
+                        <p class="bento-desc">Core languages utilized for system automation, hardware firmware, and application development.</p>
+                        <div class="physics-pills-container">
+                            <span class="interactive-pill">🐍 Python 3</span>
+                            <span class="interactive-pill">⚡ C Language</span>
+                            <span class="interactive-pill">☕ Java</span>
+                            <span class="interactive-pill">🌐 Modern JavaScript (ES6+)</span>
+                            <span class="interactive-pill">🎨 QML (Qt Modeling Language)</span>
+                            <span class="interactive-pill">💻 Bash / Shell Scripting</span>
+                            <span class="interactive-pill">📑 HTML5 & Semantic Web</span>
+                            <span class="interactive-pill">🎨 Advanced CSS3 / PostCSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Hardware & ECE -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="cpu" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h2 class="bento-title">Electronics & Communication Engineering</h2>
+                        <p class="bento-desc">Rooted in Visveswaraya Technological University (VTU) Belagavi curriculum and IEEE engineering practices.</p>
+                        <div class="physics-pills-container">
+                            <span class="interactive-pill">📊 MATLAB & Simulink</span>
+                            <span class="interactive-pill">🔌 Embedded C Firmware</span>
+                            <span class="interactive-pill">📡 Digital Signal Processing</span>
+                            <span class="interactive-pill">🎛️ Microcontroller Architecture</span>
+                            <span class="interactive-pill">⚡ Analog & Digital Circuits</span>
+                            <span class="interactive-pill">🌐 Communication Protocols</span>
+                            <span class="interactive-pill">📐 Circuit Simulation</span>
+                            <span class="interactive-pill">🏆 IEEE Engineering Standards</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Linux, Desktop & Ricing -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="terminal" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h2 class="bento-title">Linux Desktop & Ricing Environment</h2>
+                        <p class="bento-desc">A meticulously customized Unix workspace tuned for low latency, ergonomic aesthetics, and keyboard efficiency.</p>
+                        <div class="physics-pills-container">
+                            <span class="interactive-pill">🐧 Omarchy Linux</span>
+                            <span class="interactive-pill">Arch Linux</span>
+                            <span class="interactive-pill">🪟 Hyprland (Wayland)</span>
+                            <span class="interactive-pill">🐱 Kitty / Ghostty Terminal</span>
+                            <span class="interactive-pill">⚙️ Systemd & Unit Services</span>
+                            <span class="interactive-pill">🎨 Catppuccin & Everforest Theming</span>
+                            <span class="interactive-pill">⌨️ Neovim & Tmux</span>
+                            <span class="interactive-pill">Dotfiles Architecture</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Web & Creative Technologies -->
+                    <div class="bento-card bento-col-6">
+                        <div class="bento-icon-badge">
+                            <i data-lucide="sparkles" style="width:22px; height:22px;"></i>
+                        </div>
+                        <h2 class="bento-title">Creative Web & Fluid Interfaces</h2>
+                        <p class="bento-desc">Techniques and frameworks employed to construct buttery smooth, high-fps interactive web systems.</p>
+                        <div class="physics-pills-container">
+                            <span class="interactive-pill">✨ HTML5 Canvas 2D Physics</span>
+                            <span class="interactive-pill">🔊 Web Audio API Synthesizer</span>
+                            <span class="interactive-pill">🌊 Lenis Kinetic Inertia Scroll</span>
+                            <span class="interactive-pill">📐 3D Perspective CSS Transforms</span>
+                            <span class="interactive-pill">🐙 GitHub REST API Integration</span>
+                            <span class="interactive-pill">🚀 Responsive Micro-interactions</span>
+                            <span class="interactive-pill">💎 Glassmorphism & OLED Theming</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div>© 2026 Mohammed Musharaf (m7sh) · Technical Stack</div>
+                    <div class="footer-links">
+                        <a href="../../index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="work.html">Work</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../main.js"></script>
 </body>
-
 </html>

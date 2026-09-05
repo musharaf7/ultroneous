@@ -1,65 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="obsidian">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Musharaf's Work</title>
-    <link rel="stylesheet" href="../styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Featured Work & Projects · Mohammed Musharaf</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238b5cf6'/><text x='16' y='21' font-family='monospace' font-weight='bold' font-size='14' fill='white' text-anchor='middle'>M7</text></svg>" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
-
 <body>
-    <header>
-        <ul>
-            <a href="../../index.html">
-                <li>Home</li>
-            </a>
-            <a href="contact.html">
-                <li>Contact</li>
-            </a>
-        </ul>
-    </header>
 
-    <section>
-        <h2 class="subtitle">work</h2>
-        <table class="work-details">
-            <tr>
-                <td>2021</td>
-                <td>
-                    <P>Built a website that is awesome using HTML5, CSS, JavaScript. You can totally check it out.</P>
-                    <a href="https://github.com/KCT-Engineering-College/Project-on-portfolio-website">Check it out</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2019</td>
-                <td>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad fugiat beatae ea velit minus reprehenderit hic maxime corporis voluptatibus officia laudantium, nemo sed inventore aliquam quisquam unde officiis ab rem?</p>
-                    <a href="">check it out!</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2018</td>
-                <td>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, dolorem maxime. Porro sunt quisquam vitae aut facilis similique deleniti, ex repellendus eos eligendi, saepe ab repellat fugit quod quas veritatis.</p>
-                    <a href="">check it out!</a>
-                </td>
-            </tr>
-        </table>
-    </section>
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
+    <canvas id="fluid-canvas"></canvas>
 
-    <footer class="sub-pages-footer">
-        <ul>
-            <a href="https://twitter.com/i_musharaf725">
-                <li>Twitter</li>
+    <div class="ambient-lights">
+        <div class="ambient-glow one"></div>
+        <div class="ambient-glow two"></div>
+    </div>
+
+    <div class="site-wrapper">
+
+        <!-- NAVBAR -->
+        <nav class="navbar-dock">
+            <a href="../../index.html" class="nav-brand">
+                <span class="brand-logo">M7</span>
+                <span>Musharaf</span>
             </a>
-            <a href="https://github.com/mush725-beep">
-                <li>GitHub</li>
-            </a>
-            <a href="https://www.linkedin.com/in/mohammed-musharaf-122523220/">
-                <li>LinkedIn</li>
-            </a>
-        </ul>
-    </footer>
+
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link"><i data-lucide="home" style="width:15px; height:15px;"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i data-lucide="user" style="width:15px; height:15px;"></i> About</a></li>
+                <li><a href="work.html" class="nav-link active"><i data-lucide="folder-git-2" style="width:15px; height:15px;"></i> Work</a></li>
+                <li><a href="stack.html" class="nav-link"><i data-lucide="cpu" style="width:15px; height:15px;"></i> Stack</a></li>
+                <li><a href="contact.html" class="nav-link"><i data-lucide="mail" style="width:15px; height:15px;"></i> Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" title="Cycle Color Theme">
+                    <i data-lucide="palette" style="width:14px; height:14px;"></i>
+                    <span id="theme-btn-label">Theme</span>
+                </button>
+                <a href="https://github.com/m7sh" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </a>
+            </div>
+        </nav>
+
+        <!-- SUBPAGE CONTENT -->
+        <main class="subpage-wrapper">
+            <div class="container">
+
+                <a href="../../index.html" class="subpage-back-link">
+                    <i data-lucide="arrow-left" style="width:16px; height:16px;"></i>
+                    <span>Back to Overview</span>
+                </a>
+
+                <div class="section-header" style="margin-bottom: 36px;">
+                    <span class="section-label">Showcase // Open Source</span>
+                    <h1 class="section-title">Selected Works & Projects</h1>
+                    <p class="section-subtitle">A curated catalog of Linux ricing tools, desktop utilities, voice AI automation, and web experiments.</p>
+                </div>
+
+                <div class="work-card-list">
+
+                    <!-- Project 1 -->
+                    <div class="work-item-card">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                            <div>
+                                <span style="font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--primary); font-weight:600;">LINUX DESKTOP · WAYLAND · QML</span>
+                                <h2 style="font-size: 1.4rem; font-weight:700; margin-top:4px;">mush-omarchy-cricket</h2>
+                            </div>
+                            <a href="https://github.com/m7sh/mush-omarchy-cricket" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 18px; font-size:0.85rem;">
+                                <span>GitHub Repository</span>
+                                <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                            </a>
+                        </div>
+                        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:16px;">
+                            An active, lightweight desktop widget engineered specifically for Omarchy Linux and Hyprland desktops. Streams real-time live cricket scores, ball-by-ball updates, and match statuses directly on the Wayland status bar or floating overlay without taxing system resources.
+                        </p>
+                        <div class="hero-quick-tags" style="margin-top:0;">
+                            <span class="quick-tag">QML</span>
+                            <span class="quick-tag">Hyprland</span>
+                            <span class="quick-tag">Omarchy</span>
+                            <span class="quick-tag">Wayland Widget</span>
+                            <span class="quick-tag">Live API</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="work-item-card">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                            <div>
+                                <span style="font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--secondary); font-weight:600;">THEMING · DESKTOP RICE · CSS</span>
+                                <h2 style="font-size: 1.4rem; font-weight:700; margin-top:4px;">everpuccin-m7sh</h2>
+                            </div>
+                            <a href="https://github.com/m7sh/everpuccin-m7sh" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 18px; font-size:0.85rem;">
+                                <span>GitHub Repository</span>
+                                <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                            </a>
+                        </div>
+                        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:16px;">
+                            A custom crafted Omarchy theme blending the soothing pastel undertones of Catppuccin with the organic earthy warmth of Everforest. Tailored for terminal emulators (Kitty, Alacritty, Ghostty), Wayland bars, and GTK interfaces for maximum visual ergonomics during long coding sessions.
+                        </p>
+                        <div class="hero-quick-tags" style="margin-top:0;">
+                            <span class="quick-tag">CSS</span>
+                            <span class="quick-tag">Catppuccin</span>
+                            <span class="quick-tag">Everforest</span>
+                            <span class="quick-tag">GTK / Theme</span>
+                            <span class="quick-tag">Linux Ricing</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="work-item-card">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                            <div>
+                                <span style="font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--accent); font-weight:600;">PYTHON · AI SYSTEMS · AUTOMATION</span>
+                                <h2 style="font-size: 1.4rem; font-weight:700; margin-top:4px;">Desktop-Voice-Assistant</h2>
+                            </div>
+                            <a href="https://github.com/m7sh/Desktop-Voice-Assistant" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 18px; font-size:0.85rem;">
+                                <span>GitHub Repository</span>
+                                <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                            </a>
+                        </div>
+                        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:16px;">
+                            An intelligent desktop voice assistant coded in Python that processes verbal commands to automate system tasks, control audio/media playback, query Wikipedia and Google, launch desktop applications, and manage system power states hands-free.
+                        </p>
+                        <div class="hero-quick-tags" style="margin-top:0;">
+                            <span class="quick-tag">Python 3</span>
+                            <span class="quick-tag">Speech Recognition</span>
+                            <span class="quick-tag">Voice Synthesis</span>
+                            <span class="quick-tag">Desktop Automation</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="work-item-card">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                            <div>
+                                <span style="font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--primary); font-weight:600;">HIGH-PERFORMANCE FRONTEND</span>
+                                <h2 style="font-size: 1.4rem; font-weight:700; margin-top:4px;">m7sh Interactive Portfolio & Engine</h2>
+                            </div>
+                            <a href="https://github.com/m7sh/m7sh" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 18px; font-size:0.85rem;">
+                                <span>GitHub Repository</span>
+                                <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                            </a>
+                        </div>
+                        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:16px;">
+                            A next-generation interactive portfolio featuring real-time Web Audio API sound synthesis, 2D Canvas fluid particle physics, an interactive virtual Neofetch Linux terminal CLI, 3D holographic perspective card tilt, and a live GitHub API telemetry synchronizer.
+                        </p>
+                        <div class="hero-quick-tags" style="margin-top:0;">
+                            <span class="quick-tag">HTML5 / CSS3</span>
+                            <span class="quick-tag">Canvas Physics</span>
+                            <span class="quick-tag">Terminal CLI</span>
+                            <span class="quick-tag">Web Audio API</span>
+                            <span class="quick-tag">GitHub API</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div>© 2026 Mohammed Musharaf (m7sh) · Work & Projects</div>
+                    <div class="footer-links">
+                        <a href="../../index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="stack.html">Stack</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../main.js"></script>
 </body>
-
 </html>
