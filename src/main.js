@@ -552,10 +552,10 @@ Available system commands:
 `,
             whoami: () => `
 <span class="term-prompt">User:</span> Mohammed Musharaf (m7sh)
-<span class="term-prompt">Role:</span> Electronics & Communication Engineer & Creative Developer
-<span class="term-prompt">Alma Mater:</span> Visveswaraya Technological University (VTU), Belagavi
+<span class="term-prompt">Current Role:</span> Corporate Analyst @ Insurance Firm
+<span class="term-prompt">Engineering:</span> Electronics & Communication Engineer (VTU Belagavi)
 <span class="term-prompt">Affiliation:</span> Member @ IEEE
-<span class="term-prompt">Focus:</span> High-speed minimalist interfaces, Linux tooling, Omarchy ricing, open source.
+<span class="term-prompt">Focus:</span> Corporate analytics by day; Linux customization, Omarchy ricing & open-source tooling by night.
 `,
             neofetch: () => `
 <div style="display:flex; gap: 20px; align-items: center; flex-wrap: wrap;">
@@ -571,6 +571,7 @@ Available system commands:
                   <b>Theme</b>: everpuccin-m7sh [Catppuccin + Everforest]
                   <b>Terminal</b>: Ghostty / Kitty
                   <b>CPU</b>: Intel / AMD Multi-Core
+                  <b>Role</b>: Corporate Analyst @ Insurance Firm
                   <b>Degree</b>: B.E. in Electronics & Communication (VTU)
 </pre>
 </div>
